@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Paw Paradise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #FF6B6B;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .about-section {
+            max-width: 1200px;
+            margin: 120px auto 50px;
+            padding: 0 20px;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-header h1 {
+            font-size: 2.5em;
+            color: #FF6B6B;
+            margin-bottom: 20px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            padding: 20px;
+        }
+
+        .about-text h2 {
+            color: #FF6B6B;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .story-section {
+            margin-top: 50px;
+            padding: 40px;
+            background-color: #f9f9f9;
+            border-radius: 20px;
+        }
+
+        .story-section h2 {
+            color: #FF6B6B;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Paw Paradise</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#testimonials">Testimonials</a>
+                <a href="about.html">About Us</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <div class="about-header">
+            <h1>Our Story</h1>
+            <p>Meet the passionate team behind Paw Paradise</p>
+        </div>
+
+        <div class="about-content">
+            <img src="images/luxury-suite.jpg" alt="Paulina and Robert with Gizmo" class="about-image">
+            <div class="about-text">
+                <h2>Paulina & Robert</h2>
+                <p>Welcome to our dog hotel! We are Paulina and Robert, proud parents of our beloved Gizmo. Our journey with dogs began when we adopted Gizmo, and it completely changed our lives.</p>
+                <p>After experiencing the challenges of finding quality care for Gizmo during our travels, we decided to create a place where dogs could feel as comfortable and loved as they do at home.</p>
+            </div>
+        </div>
+
+        <div class="story-section">
+            <h2>Our Adventure with Gizmo</h2>
+            <p>Gizmo came into our lives and brought so much joy and love. His playful personality and endless energy inspired us to create Paw Paradise. We wanted to build a place where every dog could experience the same level of care and attention that Gizmo receives at home.</p>
+            <p>Our experience with Gizmo taught us that every dog is unique and deserves personalized care. That's why at Paw Paradise, we treat every dog as if they were our own, ensuring they feel safe, loved, and happy during their stay.</p>
+            <p>From daily walks to playtime and cuddles, we make sure every dog gets the attention they need. Our facility is designed with dogs' comfort in mind, featuring spacious rooms, play areas, and plenty of love from our dedicated team.</p>
+        </div>
+    </section>
+</body>
+</html> 

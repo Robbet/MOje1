@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paw Paradise - Luxury Dog Hotel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #FF6B6B;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #FF6B6B;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .feature-content {
+            padding: 20px;
+        }
+
+        .feature-content h2 {
+            color: #FF6B6B;
+            margin-bottom: 10px;
+        }
+
+        .testimonials {
+            background-color: #f9f9f9;
+            padding: 100px 0;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .booking-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .submit-button {
+            background-color: #FF6B6B;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #ff5252;
+        }
+
+        .flatpickr-calendar {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Paw Paradise</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="about.html">About Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your Dog's Paradise</h1>
+            <p>Luxury accommodation and care for your furry friend</p>
+            <a href="#contact" class="cta-button">Book Now</a>
+        </div>
+    </section>
+
+    <section class="features" id="services">
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="images/luxury-suite.jpg" alt="Luxury Suite" class="feature-image">
+                <div class="feature-content">
+                    <h2>Luxury Suites</h2>
+                    <p>Spacious rooms with premium bedding and climate control for your dog's comfort.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Play Area" class="feature-image">
+                <div class="feature-content">
+                    <h2>Play Areas</h2>
+                    <p>Large outdoor and indoor play areas with toys and activities for your dog.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Care" class="feature-image">
+                <div class="feature-content">
+                    <h2>24/7 Care</h2>
+                    <p>Professional staff available round the clock to care for your dog.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Happy Dog" class="testimonial-image">
+                <h3>Max's Story</h3>
+                <p>"Max absolutely loves his stays at Paw Paradise. The staff treats him like family!"</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Happy Dog" class="testimonial-image">
+                <h3>Bella's Experience</h3>
+                <p>"The play areas are amazing and Bella always comes home happy and tired!"</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Happy Dog" class="testimonial-image">
+                <h3>Charlie's Adventure</h3>
+                <p>"The luxury suites are perfect and Charlie gets so much attention from the staff!"</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Contact Us</h2>
+            <p>Email: psihotel@gmail.com</p>
+            <p>Phone: (888)zzzz 888-8888</p>
+            <p>&copy; 2018 Paw Paradise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Book Your Dog's Stay</h2>
+            <form class="booking-form">
+                <div class="form-group">
+                    <label for="dogName">Dog's Name</label>
+                    <input type="text" id="dogName" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkIn">Check-in Date</label>
+                    <input type="text" id="checkIn" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkOut">Check-out Date</label>
+                    <input type="text" id="checkOut" required>
+                </div>
+                <div class="form-group">
+                    <label for="ownerName">Owner's Name</label>
+                    <input type="text" id="ownerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <button type="submit" class="submit-button">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        const modal = document.getElementById('bookingModal');
+        const closeButton = document.querySelector('.close-button');
+        const bookNowButton = document.querySelector('.cta-button');
+
+        bookNowButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        flatpickr("#checkIn", {
+            minDate: "today",
+            dateFormat: "Y-m-d",
+            onChange: function(selectedDates, dateStr) {
+                checkOutPicker.set("minDate", dateStr);
+            }
+        });
+
+        const checkOutPicker = flatpickr("#checkOut", {
+            minDate: "today",
+            dateFormat: "Y-m-d"
+        });
+
+        document.querySelector('.booking-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your booking! We will contact you shortly to confirm your reservation.');
+            modal.style.display = 'none';
+        });
+    </script>
+</body>
+</html> 
